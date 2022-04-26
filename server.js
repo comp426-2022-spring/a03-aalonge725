@@ -46,6 +46,14 @@ app.get('/app/flip/call/heads', (req, res) => {
     res.json(result);
 });
 
+app.get('/app/flip/call/tails', (req, res) => {
+    let result = coin.flipACoin('tails')
+    res.statusCode = 200;
+    res.statusMessage = 200;
+    res.set('Content-Type', 'test/json');
+    res.json(result);
+});
+
 // Default response for any other request
 app.use(function(req, res){
     res.status(404).send('404 NOT FOUND')
