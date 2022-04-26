@@ -20,6 +20,14 @@ app.get('/app/', (req, res) => {
     res.end(res.statusCode+ ' ' +res.statusMessage)
 });
 
+app.get('/app/flip/', (req, res) => {
+    let result = {'flip': coin.coinFlip()}
+    res.statusCode = 200;
+    res.statusMessage = 'OK';
+    res.set('Content-Type', 'text/json');
+    res.json(result);
+});
+
 app.get('/app/flips/:number', (req, res) => {
 	let raw = coin.coinFlips(req.params.number)
     let summary = coin.countFlips(raw)
